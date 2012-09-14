@@ -2,31 +2,15 @@
  */
 
 #include <avr/io.h>
+#include "utils/simulSerial.h"
 
 //#include "hal/gpio.h"
 
-#define DEBUG true
 
-#ifdef DEBUG
-    #include <stdio.h>
-    #define SPECIAL_OUT_PORT (*((volatile char *)0x20))
-    #define SPECIAL_IN_PORT (*((volatile char *)0x22))
-#endif
-
-#ifdef DEBUG
-    void debug_puts(const char * str)
-    {
-        const char *c;
-        for(c=str;*c;c++)
-        {
-            SPECIAL_OUT_PORT=*c;
-        }
-    }
-#endif
 
 int main(void)
 {
-    #ifdef DEBUG
+    #ifdef SIM
     char buff[100];
     #endif
     //uint8_t v=0;
@@ -34,9 +18,9 @@ int main(void)
     uint8_t a=56;
     //uint32_t *ptrA=(uint32_t)&a;
     uint16_t c=(uint16_t)&a;
-    #ifdef DEBUG
+    #ifdef SIM
     sprintf(buff,"Zmienna a=%d, &a=%d",a,c);
-    debug_puts(buff);
+    sim_puts(buff);
 //    debug_puts(buff);
     #endif
 #if 0
