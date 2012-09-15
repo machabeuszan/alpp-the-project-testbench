@@ -76,7 +76,9 @@ elf:main.elf
 hex:main.hex
 
 simul:main.elf
+	@printf "\n\n"
 	simulavr -d $(DEVICE) -f $< -W 0x20,- -R 0x22,- -T exit
+	@printf "\n"
 
 
 %.o: %.cpp
