@@ -1,10 +1,20 @@
-/*
- */
+/*---------------------------------------------+
+|                                              |
+| Name: Makefile                               |
+|  Project: alpp                               |
+|  Author: Adrian Ciesielski                   |
+|  Creation Date: 2012-08-31                   |
+|  Copyright: (c) 2012 by Adrian Ciesielski    |
+|  License: See top of Makefile                |
+|  Version: See top of Makefile                |
+|                                              |
++---------------------------------------------*/
+
 
 #include <avr/io.h>
 #include "utils/simulSerial.h"
 #include "hal/preg8.h"
-
+//#include "hal/preg16.h"
 //#include "hal/gpio.h"
 
 
@@ -14,22 +24,26 @@ int main(void)
     char buff[100];
     #endif
 
-    volatile uint8_t fakerejestr;
+    volatile uint8_t fakerejestr=0b01010101;
     //volatile uint16_t fake2=0b0101010101010101;
 
+    PReg8 MyReg(fakerejestr);
     //My8Preg MyRejestr(fakerejestr);
     //PReg8<uint16_t> MyRej2(fake2);
 
     fakerejestr=0b01010101; //85
 
-    PReg8::set(fakerejestr,0b00110011,0b00001111);
+    //PReg8::set(fakerejestr,0b00110011,0b00001111);
+    //PReg16::set(fake2,0b0011001100110011,0b0000111100001111);
 
-
+    uint8_t a=0xff;
 
 
     //uint8_t v=0;
     //A a(v);
-    uint8_t a=fakerejestr;
+    //a=PReg8::get(fakerejestr,a,0x0f);
+    MyReg.set(0xff,0x0f);
+    a=fakerejestr;
     //uint16_t a=fake2;
 
 
