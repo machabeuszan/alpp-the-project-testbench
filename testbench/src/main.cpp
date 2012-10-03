@@ -17,66 +17,13 @@
 //#include "hal/preg16.h"
 //#include "hal/gpio.h"
 #include "hal/onoff.h"
+#include "hal/pgpopin.h"
 
 
-class PGpoPin
-{
-public:
-    PGpoPin(volatile uint8_t &port, const uint8_t pin, bool offState);
-    void set(bool value);
-    bool get();
-    void on();
-    void off();
-    void toggle();
-    void highZ(const bool enable);
-
-private:
-    volatile uint8_t &PORT;
-    volatile uint8_t &DDR;
-    uint8_t PINmask;
-    bool os;
 
 
-};
 
-PGpoPin::PGpoPin(volatile uint8_t &port, const uint8_t pin, bool offState):PORT(port),DDR(*(&port-1)),PINmask(1<<pin),os(offState)
-{
-    highZ(false);
-}
 
-inline void PGpoPin::set(bool value)
-{
-    value^=os;
-    PReg8::set(PORT,0xff*value,PINmask);
-}
-
-inline bool PGpoPin::get()
-{
-    return ((bool)(PORT&PINmask))^os;
-}
-
-inline void PGpoPin::on()
-{
-    set(true);
-}
-
-inline void PGpoPin::off()
-{
-    set(false);
-}
-
-inline void PGpoPin::toggle()
-{
-    PORT^=PINmask;
-}
-
-void PGpoPin::highZ(const bool enable)
-{
-    if(enable)
-        DDR&=~(PINmask);
-    else
-        DDR|=(PINmask);
-}
 
 
 
@@ -100,14 +47,17 @@ int main(void)
     //PReg16::set(fake2,0b0011001100110011,0b0000111100001111);
 
 
-    PGpoPin led1(PORTD,4,0);
+	PORTD=0b01010101;
+    PGpoPin led1(PORTD,3,1);
 
-    led1.off();
-    led1.highZ(true);
+    led1.on();
+    //led1.highZ(true);
 
     uint8_t a=0;
 
-    a=DDRD;
+
+
+    a=PORTD;
     //uint8_t v=0;
     //A a(v);
     //a=PReg8::get(fakerejestr,a,0x0f);
