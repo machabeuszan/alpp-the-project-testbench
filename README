@@ -1,0 +1,7 @@
+This is ALPP project testbench.
+
+ALPP - AVR Library in cPP is library which aim is to give similar functionality to "Procyon AVRlib" or "AVRliberty" projects but do it with use of C++ and many of it's advantages. It is intended to be easy to use and intuitive i.e. you can create object named PTimer and configure it to be system timer whith specified frequency by its inline constructor. In traditional, very common way, solution is to count values of registers by hand. Then nobody remembers what that magical numer means. This project is to break down such like that situations.
+
+The project is developed under terms and conditions of GNU LESSER GENERAL PUBLIC LICENSE, presented in COPYING file.
+
+This git repository consists of testbench for developping alpp itself.
