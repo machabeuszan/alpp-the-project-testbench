@@ -39,14 +39,14 @@ int main(void)
 	volatile uint8_t &FDDRB=(*(&FPORTB-1));
 	volatile uint8_t &FPINB=(*(&FPORTB-2));
 
-	PGpiPin sw(FPORTB,6,1);
-	FPORTB=0xff;
+	PGpiPin sw(FPORTB,6,0);
+	//FPORTB=0xff;
 	sw.deactivate();
 
 
-	FPINB=(1<<5);
+	FPINB=(1<<6);
 
-	uint16_t a=FPORTB;
+	uint16_t a=sw.isOn();
 
 
     uint16_t c=(uint16_t)&a;
