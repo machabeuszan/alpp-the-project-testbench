@@ -17,22 +17,11 @@
 //#include "hal/preg16.h"
 //#include "hal/gpio.h"
 #include "hal/onoff.h"
-#include "hal/pgpopin.h"
+#include "hal/pgpipin.h"
 
 
 
 
-
-
-
-
-class MLT{
-public:
-  uint8_t control:6;
-  uint8_t rtr:1;
-  uint8_t ext:1;
-
-};
 
 int main(void)
 {
@@ -40,21 +29,26 @@ int main(void)
     char buff[100];
     #endif
 
-//    volatile uint8_t fakerejestr=0b01010101;
-
-	uint16_t a=0;
-
-	MLT dupa;
-	dupa.control=0x3d;
-	dupa.rtr=1;
-	dupa.ext=1;
-
-	a=(dupa.control<<2)|(dupa.rtr<<1)|(dupa.ext);
+    //volatile uint8_t fakerejestr=0b01010101;
+	//PIND=0xf0;
 
 
 
+	volatile uint8_t FPORTB;
 
-    //uint32_t *ptrA=(uint32_t)&a;
+	volatile uint8_t &FDDRB=(*(&FPORTB-1));
+	volatile uint8_t &FPINB=(*(&FPORTB-2));
+
+	PGpiPin sw(FPORTB,6,1);
+	FPORTB=0xff;
+	sw.deactivate();
+
+
+	FPINB=(1<<5);
+
+	uint16_t a=FPORTB;
+
+
     uint16_t c=(uint16_t)&a;
     #ifdef SIM
     sprintf(buff,"\nZmienna a=%u, &a=%d\n\n",a,c);
