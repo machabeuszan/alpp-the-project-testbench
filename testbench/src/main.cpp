@@ -18,6 +18,7 @@
 //#include "hal/gpio.h"
 #include "hal/onoff.h"
 #include "hal/pgpipin.h"
+#include "include/fakegpio.h"
 
 
 
@@ -34,17 +35,17 @@ int main(void)
 
 
 
-	volatile uint8_t FPORTB;
+	//volatile uint8_t FPORTB;
 
-	volatile uint8_t &FDDRB=(*(&FPORTB-1));
-	volatile uint8_t &FPINB=(*(&FPORTB-2));
+	//volatile uint8_t &FDDRB=(*(&FPORTB-1));
+	//volatile uint8_t &FPINB=(*(&FPORTB-2));
 
 	PGpiPin sw(FPORTB,6,0);
 	//FPORTB=0xff;
 	sw.deactivate();
 
 
-	FPINB=(1<<6);
+	FPINB=(1<<5);
 
 	uint16_t a=sw.isOn();
 
