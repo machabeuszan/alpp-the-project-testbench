@@ -1,6 +1,6 @@
 /*---------------------------------------------+
 |                                              |
-| Name: main.cpp                               |
+| Name: testbench/main.cpp                     |
 |  Project: alpp                               |
 |  Author: Adrian Ciesielski                   |
 |  Creation Date: 2012-08-31                   |
