@@ -42,7 +42,15 @@ int main(void)
 
 	FPINB=(1<<5);
 
-	uint16_t a=sw.isOn();
+	PORTC = 0xff;
+
+	PLed dioda1(PORTC,3,0);
+	PLed dioda2(PORTC,4,OFF);
+
+	dioda1.off();
+	dioda2.setOn(true);
+
+	uint16_t a=PORTC;
 
 
     uint16_t c=(uint16_t)&a;
