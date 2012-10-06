@@ -40,8 +40,7 @@
 			<Add after="avr-objcopy --no-change-warnings -j .eeprom --change-section-lma .eeprom=0 -O ihex $(TARGET_OUTPUT_FILE) $(TARGET_OUTPUT_FILE).eep.hex" />
 			<Add after="avr-objdump -h -S $(TARGET_OUTPUT_FILE) &gt; $(TARGET_OUTPUT_FILE).lss" />
 		</ExtraCommands>
-		<Unit filename="include/ee.h" />
-		<Unit filename="src/ee.cpp" />
+		<Unit filename="include/fakegpio.h" />
 		<Unit filename="src/main.cpp" />
 		<Extensions>
 			<code_completion />

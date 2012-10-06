@@ -1,6 +1,6 @@
 /*---------------------------------------------+
 |                                              |
-| Name: Makefile                               |
+| Name: main.cpp                               |
 |  Project: alpp                               |
 |  Author: Adrian Ciesielski                   |
 |  Creation Date: 2012-08-31                   |
@@ -19,6 +19,7 @@
 #include "hal/onoff.h"
 #include "hal/pgpipin.h"
 #include "include/fakegpio.h"
+#include "sys/pled.h"
 
 
 
@@ -31,14 +32,8 @@ int main(void)
     #endif
 
     //volatile uint8_t fakerejestr=0b01010101;
-	//PIND=0xf0;
 
 
-
-	//volatile uint8_t FPORTB;
-
-	//volatile uint8_t &FDDRB=(*(&FPORTB-1));
-	//volatile uint8_t &FPINB=(*(&FPORTB-2));
 
 	PGpiPin sw(FPORTB,6,0);
 	//FPORTB=0xff;
