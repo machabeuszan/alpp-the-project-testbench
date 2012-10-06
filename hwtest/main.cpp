@@ -1,9 +1,9 @@
 /*---------------------------------------------+
 |                                              |
-| Name: hwtest/main.cpp                     |
+| Name: hwtest/main.cpp                        |
 |  Project: alpp                               |
 |  Author: Adrian Ciesielski                   |
-|  Creation Date: 2012-10-06                  |
+|  Creation Date: 2012-10-06                   |
 |  Copyright: (c) 2012 by Adrian Ciesielski    |
 |  License: See top of Makefile                |
 |  Version: See top of Makefile                |
@@ -19,19 +19,23 @@ int main(void)
 {
 
     // Insert code
-    PLed dioda(PORTB,4,0);
-    PGpiPin sw(PORTB,3,0);
+    PLed dioda(PORTB,4,LO,20);
+    PGpiPin sw(PORTB,3,HI);
+    dioda.setPercent(5);
 
 
     while(1)
     {
-		_delay_ms(100);
+		//_delay_ms(1);
+		_delay_us(200);
+		dioda.poll();
 		if(sw.isOn())
 		{
-			dioda.off();
+			dioda.setPercent(70);
 		} else {
-			dioda.on();
+			dioda.setPercent(20);
 		}
+
     }
 
 

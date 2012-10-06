@@ -35,22 +35,16 @@ int main(void)
 
 
 
-	PGpiPin sw(FPORTB,6,0);
-	//FPORTB=0xff;
-	sw.deactivate();
+	PLed dioda(PORTB,4,LO,50);
+	//dioda.setLevel(65);
+	dioda.setPercent(50);
 
+	for(uint8_t i=0;i<76;i++)
+	{
+		dioda.poll();
+	}
 
-	FPINB=(1<<5);
-
-	PORTC = 0xff;
-
-	PLed dioda1(PORTC,3,0);
-	PLed dioda2(PORTC,4,OFF);
-
-	dioda1.off();
-	dioda2.setOn(true);
-
-	uint16_t a=PORTC;
+	uint16_t a=dioda.isOn();
 
 
     uint16_t c=(uint16_t)&a;
