@@ -12,6 +12,7 @@
 				<Option type="1" />
 				<Option compiler="avrgcc" />
 				<Compiler>
+					<Add option="-Os" />
 					<Add option="-g" />
 				</Compiler>
 			</Target>
@@ -24,15 +25,21 @@
 					<Add option="-Os" />
 				</Compiler>
 			</Target>
+			<Environment>
+				<Variable name="usbaspcpu" value="m644" />
+			</Environment>
 		</Build>
 		<Compiler>
-			<Add option="-Wall" />
 			<Add option="-mmcu=atmega644" />
+			<Add option="-Wall" />
 			<Add option="-DF_CPU=16000000UL" />
+			<Add directory="../release/include" />
 		</Compiler>
 		<Linker>
 			<Add option="-mmcu=atmega644" />
 			<Add option="-Wl,-Map=$(TARGET_OUTPUT_FILE).map,--cref" />
+			<Add option="-lalpp" />
+			<Add directory="../release" />
 		</Linker>
 		<ExtraCommands>
 			<Add after="avr-size $(TARGET_OUTPUT_FILE)" />

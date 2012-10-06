@@ -1,25 +1,26 @@
 # depslib dependency file v1.0
-1349543390 source:/home/trannz/ADR/dziela/elemele/projekty/alpp-the-project/hwtest/main.cpp
+1349563318 source:/home/trannz/ADR/dziela/elemele/projekty/alpp-the-project/hwtest/main.cpp
 	<avr/io.h>
 	<util/delay.h>
 	"sys/pled.h"
 	"hal/pgpipin.h"
 
-1349543455 /home/trannz/ADR/dziela/elemele/projekty/alpp-the-project/release/include/sys/pled.h
+1349563354 /home/trannz/ADR/dziela/elemele/projekty/alpp-the-project/release/include/sys/pled.h
 	"hal/pgpopin.h"
+	<util/delay.h>
 
-1349543455 /home/trannz/ADR/dziela/elemele/projekty/alpp-the-project/release/include/hal/pgpopin.h
+1349563354 /home/trannz/ADR/dziela/elemele/projekty/alpp-the-project/release/include/hal/pgpopin.h
 	"hal/preg8.h"
 
-1349543455 /home/trannz/ADR/dziela/elemele/projekty/alpp-the-project/release/include/hal/preg8.h
+1349563354 /home/trannz/ADR/dziela/elemele/projekty/alpp-the-project/release/include/hal/preg8.h
 	<avr/io.h>
 	"hal/pregcommon.h"
 
-1349543455 /home/trannz/ADR/dziela/elemele/projekty/alpp-the-project/release/include/hal/pregcommon.h
+1349563354 /home/trannz/ADR/dziela/elemele/projekty/alpp-the-project/release/include/hal/pregcommon.h
 	"hal/onoff.h"
 
-1349543455 /home/trannz/ADR/dziela/elemele/projekty/alpp-the-project/release/include/hal/onoff.h
+1349563354 /home/trannz/ADR/dziela/elemele/projekty/alpp-the-project/release/include/hal/onoff.h
 
-1349543455 /home/trannz/ADR/dziela/elemele/projekty/alpp-the-project/release/include/hal/pgpipin.h
+1349563354 /home/trannz/ADR/dziela/elemele/projekty/alpp-the-project/release/include/hal/pgpipin.h
 	"hal/preg8.h"
 
