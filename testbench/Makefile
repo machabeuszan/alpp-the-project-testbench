@@ -43,6 +43,7 @@ CXXFLAGS = -I$(ALPPDIR)/include  -I$(AVR_INCLUDE)
 
 #link flags
 LDFLAGS	 = -L../release -lalpp
+LDDEPENDS= ../release/libalpp.a
 
 
 
@@ -95,7 +96,7 @@ simul:main.elf
 
 
 
-main.elf: $(OBJECTS)
+main.elf: $(OBJECTS) $(LDDEPENDS)
 	$(LD)  -o $@ $^ $(FLAGS) $(LDFLAGS)
 
 main.hex: main.elf
