@@ -201,7 +201,7 @@ int main(void)
 
     TCCR1A = 0;
 	TCCR1B = (1<<CS12)|(0<<CS11)|(1<<CS10)|(1<<WGM12);
-	OCR1A=4001;
+	OCR1A=1001;
 	TIMSK=(1<<OCIE1A);
 
 	sei();
